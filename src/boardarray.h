@@ -14,8 +14,14 @@ class BoardArray : public Board {
         }
 
         void add(Entry* entry) {
-            // TODO: IMPLEMENT THIS FUNCTION
-            // ALGORITHM IS PROVIDED IN INSTRUCTIONS.TXT
+            for(int i=0; i<index; i++){
+    Entry existing = array[i];
+    if(entry->compare(&existing)){
+        if(j == SIZE)continue;
+        array[j] == array[j-1];
+    }
+    *(array + 1) = *entry;
+    if(index < SIZE) index++;
             return;
         }
 
