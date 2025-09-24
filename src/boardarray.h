@@ -14,16 +14,26 @@ class BoardArray : public Board {
         }
 
         void add(Entry* entry) {
-            for(int i=0; i<index; i++){
-    Entry existing = array[i];
-    if(entry->compare(&existing)){
-        if(j == SIZE)continue;
-        array[j] == array[j-1];
-    }
-    *(array + 1) = *entry;
-    if(index < SIZE) index++;
-            return;
+            for (int i = 0; i < index;; i++)
+            {
+                Entry existing = array[i];
+                if(entry->compare(&existing)) {
+                    for(int j=index; j>i; j--){
+                        if (j == SIZE) continue;
+                        array[j] = array[j-1];
+                        
+                    }
+                    *(array + 1) = *entry;
+                    if(index < SIZE) index++;
+                    return;
+                }
+            }
+            array[index] = *entry;
+            if(index < SIZE) index++;
+            return;    
         }
+    
+        
 
         void print() {
             for (int i = 0; i < index; i++) {
